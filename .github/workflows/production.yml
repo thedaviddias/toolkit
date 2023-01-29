@@ -1,0 +1,55 @@
+name: '🚀️  Production'
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: push-${{ github.ref }}-1
+  cancel-in-progress: true
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  pull:
+    name: '👷️  CI'
+    if: (contains(github.event.head_commit.message, '[b]') || github.ref == 'refs/heads/main') && !contains(github.event.head_commit.message, '[skip ci]')
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - name: '🐙️  Checkout'
+        id: pull-checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 10
+
+      - name: '💽️  Init'
+        id: push-init
+        uses: TheDavidDias/toolkit/.github/actions/init@main
+
+      - name: '📦  Install'
+        id: push-install
+        uses: TheDavidDias/toolkit/.github/actions/install@main
+
+      - name: '🏗️  Build ALL'
+        id: push-build-all
+        if: ${{ contains(steps.push-commit-message.outputs.message, '[b]') }}
+        uses: TheDavidDias/toolkit/.github/actions/build@main
+        with:
+          BUILD_COMMAND: 'build:all'
+
+      - name: '🏷️  Release'
+        id: push-release
+        if: ${{ contains(steps.push-commit-message.outputs.message, '[b]') }}
+        uses: TheDavidDias/toolkit/.github/actions/release@main
+        with:
+          GH_TOKEN: ${{ env.GH_TOKEN }}
+          NPM_TOKEN: ${{ env.NPM_TOKEN }}

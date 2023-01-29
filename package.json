@@ -14,13 +14,21 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@types/is-ci": "^3.0.0",
+    "dotenv": "^16.0.3",
     "eslint-config-custom": "workspace:*",
-    "prettier": "latest",
-    "turbo": "latest"
+    "is-ci": "^3.0.1",
+    "prettier": "^2.8.3",
+    "semantic-release": "19",
+    "semantic-release-monorepo": "^7.0.5",
+    "tsup": "^6.5.0",
+    "turbo": "^1.7.0"
   },
   "engines": {
     "node": ">=16.0.0"
   },
-  "dependencies": {},
-  "packageManager": "pnpm@7.5.2"
+  "packageManager": "pnpm@7.5.2",
+  "dependencies": {
+    "@thedaviddias/tsconfig": "workspace:^0.0.0"
+  }
 }
