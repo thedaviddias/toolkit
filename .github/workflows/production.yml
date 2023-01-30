@@ -10,7 +10,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GH_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+  GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+  GH_DEPLOY_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
@@ -22,7 +24,9 @@ jobs:
     strategy:
       fail-fast: false
     env:
-      GH_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+      GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+      GH_DEPLOY_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: '🐙️  Checkout'
@@ -30,6 +34,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 10
+          persist-credentials: false
 
       - name: '💽️  Init'
         id: push-init
@@ -49,5 +54,5 @@ jobs:
         id: push-release
         uses: TheDavidDias/toolkit/.github/actions/release@main
         with:
-          GH_TOKEN: ${{ env.GH_DEPLOY_TOKEN }}
+          GH_TOKEN: ${{ env.GH_BOT_TOKEN }}
           NPM_TOKEN: ${{ env.NPM_TOKEN }}
