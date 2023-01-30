@@ -13,7 +13,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "semantic-release": "pnpm semantic-release:mono",
-    "semantic-release:dry": "pnpm --filter @thedaviddias/* -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo --dry-run",
+    "semantic-release:dry": "NPM_TOKEN=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 pnpm --filter @thedaviddias/* -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo --dry-run",
     "semantic-release:mono": "pnpm --filter @thedaviddias/* -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo"
   },
   "devDependencies": {
@@ -22,7 +22,7 @@
     "eslint-config-custom": "workspace:*",
     "is-ci": "^3.0.1",
     "prettier": "^2.8.3",
-    "semantic-release": "19",
+    "semantic-release": "^19.0.5",
     "semantic-release-monorepo": "^7.0.5",
     "tsup": "^6.5.0",
     "turbo": "^1.7.0"
