@@ -16,7 +16,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GH_DEPLOY_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
   GH_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
 
 jobs:
@@ -29,7 +28,6 @@ jobs:
       fail-fast: false
     env:
       GH_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
-      GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: 'Checkout'
