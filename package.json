@@ -11,7 +11,10 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "semantic-release": "pnpm semantic-release:mono",
+    "semantic-release:dry": "pnpm --filter @thedaviddias/* -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo --dry-run",
+    "semantic-release:mono": "pnpm --filter @thedaviddias/* -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo"
   },
   "devDependencies": {
     "@types/is-ci": "^3.0.0",

@@ -39,16 +39,14 @@ jobs:
         id: push-install
         uses: TheDavidDias/toolkit/.github/actions/install@main
 
-      - name: '🏗️  Build ALL'
-        id: push-build-all
-        if: ${{ contains(steps.push-commit-message.outputs.message, '[b]') }}
+      - name: '🏗️  Build'
+        id: push-build
         uses: TheDavidDias/toolkit/.github/actions/build@main
         with:
-          BUILD_COMMAND: 'build:all'
+          BUILD_COMMAND: 'build'
 
       - name: '🏷️  Release'
         id: push-release
-        if: ${{ contains(steps.push-commit-message.outputs.message, '[b]') }}
         uses: TheDavidDias/toolkit/.github/actions/release@main
         with:
           GH_TOKEN: ${{ env.GH_DEPLOY_TOKEN }}

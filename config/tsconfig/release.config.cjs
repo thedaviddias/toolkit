@@ -3,7 +3,6 @@ const isCI = require('is-ci')
 !isCI && require('dotenv').config({ path: '../../.env' })
 
 const { config: configDefault } = require('../../release.config.cjs')
-const { getConfig } = require('@thedaviddias/semantic')
 
 const { name } = require('./package.json')
 
@@ -17,6 +16,6 @@ const configPassed = {
   tagFormat: `${name}@\${version}`,
 }
 
-const config = getConfig(configPassed)
+const config = configPassed
 
 module.exports = config
