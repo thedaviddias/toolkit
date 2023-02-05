@@ -13,9 +13,13 @@ runs:
   steps:
     - name: 'Release'
       id: release
-      shell: bash
+      uses: changesets/action@v1
+      with:
+        version: pnpm run ci:version
+        commit: 'chore: update versions'
+        title: 'chore: update versions'
+        publish: pnpm run release
       env:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ inputs.NPM_TOKEN }}
-      run: |
-        pnpm run semantic-release
+

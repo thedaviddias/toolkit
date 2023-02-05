@@ -1,5 +1,0 @@
-export { commitAnalyzer } from './commitAnalyzer'
-export { git } from './git'
-export { github } from './github'
-export { npm } from './npm'
-export { getPluginOptions } from './pluginOptions'
