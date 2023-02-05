@@ -8,6 +8,7 @@ const config = {
     email: [],
     login: ['thedaviddias'],
   },
+  pkgRoot: './dist',
 }
 
 module.exports.config = config
