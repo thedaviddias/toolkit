@@ -1,6 +1,6 @@
 {
   "name": "@thedaviddias/tsconfig",
-  "version": "0.0.0",
+  "version": "1.0.3",
   "type": "module",
   "description": "TypeScript Configuration for David Dias projects",
   "repository": "thedaviddias/toolkit.git",
