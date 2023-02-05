@@ -18,7 +18,7 @@ runs:
         version: pnpm run ci:version
         commit: 'chore: update versions'
         title: 'chore: update versions'
-        publish: pnpm run release
+        publish: pnpm run ci:release
       env:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ inputs.NPM_TOKEN }}

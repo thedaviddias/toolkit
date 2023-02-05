@@ -11,14 +11,14 @@
     "build": "turbo run build --filter=[HEAD^1]",
     "build:all": "turbo run build",
     "changeset": "changeset",
+    "ci:prerelease": "pnpm install && pnpm build",
+    "ci:release": "pnpm run ci:prerelease && changeset publish -r",
     "ci:version": "changeset version && pnpm install --frozen-lockfile false",
     "clean": "turbo run clean --filter=[HEAD^1]",
     "clean:all": "turbo run clean",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo run lint",
-    "prerelease": "pnpm install && pnpm build",
-    "release": "pnpm run prerelease && changeset publish"
+    "lint": "turbo run lint"
   },
   "dependencies": {
     "@thedaviddias/tsconfig": "workspace:*"
