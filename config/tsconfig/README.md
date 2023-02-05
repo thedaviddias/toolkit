@@ -10,8 +10,10 @@ npm install -D @thedaviddias/tsconfig
 
 ## Example
 
+```
 {
-  // ..
+  // ...
   "extends": "@thedaviddias/tsconfig/nextjs.json"
-  // ..
+  // ...
 }
+```

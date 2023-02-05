@@ -14,6 +14,7 @@ const configPassed = {
   ...configDefault,
   branches,
   tagFormat: `${name}@\${version}`,
+  pkgRoot: './dist',
 }
 
 const config = configPassed
