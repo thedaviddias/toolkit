@@ -16,3 +16,10 @@ runs:
         cache-dependency-path: pnpm-lock.yaml
         cache: 'pnpm'
         node-version: 16
+
+    - name: Cache node_modules
+      id: cache-node-modules
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}

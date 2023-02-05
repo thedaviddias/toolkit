@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
     env:
-      GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: '🐙️  Checkout'
@@ -50,5 +50,5 @@ jobs:
         id: push-release
         uses: TheDavidDias/toolkit/.github/actions/release@main
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ env.NPM_TOKEN }}
