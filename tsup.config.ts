@@ -7,7 +7,7 @@ import { defineConfig } from 'tsup'
 
 const config: Options = {
   clean: false,
-  dts: true,
+  dts: false,
   external: [],
   format: ['esm', 'cjs'],
   minify: true,

@@ -3,12 +3,7 @@ const branches = [
 ]
 
 const config = {
-  branches,
-  contributorsProhibitList: {
-    email: [],
-    login: ['thedaviddias'],
-  },
-  pkgRoot: './dist',
+  branches
 }
 
 module.exports.config = config

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2020"],
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2020",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "extends": "@thedaviddias/tsconfig/src/node16.json",
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

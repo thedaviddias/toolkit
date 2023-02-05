@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "description": "TypeScript Configuration for David Dias projects",
-  "repository": "thedaviddias/packages.git",
+  "repository": "thedaviddias/toolkit.git",
   "sideEffects": false,
   "private": false,
   "engines": {
@@ -21,6 +21,7 @@
     "semantic-release": "semantic-release"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
