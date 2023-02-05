@@ -9,9 +9,6 @@
     "lint": {
       "outputs": []
     },
-    "@thedaviddias/semantic#build": {
-      "inputs": ["src/**", "*.cjs", "package.json"]
-    },
     "dev": {
       "cache": false
     }
