@@ -1,21 +1,15 @@
-/* eslint-disable import/order */
 const isCI = require('is-ci')
 
 !isCI && require('dotenv').config({ path: '../../.env' })
 
 const { config: configDefault } = require('../../release.config.cjs')
-
-const { name } = require('./package.json')
 const { getConfig } = require('@thedaviddias/semantic')
 
-const branches = [
-  ...configDefault.branches
-]
+const { name } = require('./package.json')
 
 const configPassed = {
   ...configDefault,
-  branches,
-  tagFormat: `${name}@\${version}`
+  tagFormat: `${name}@\${version}`,
 }
 
 const config = getConfig(configPassed)

@@ -1,14 +1,13 @@
+const { getConfig } = require('./packages/semantic/dist/index.cjs')
+
 const branches = [
   { name: 'main' },
+  { name: 'canary', prerelease: 'canary' },
 ]
 
 const config = {
-  branches,
-  contributorsProhibitList: {
-    email: [],
-    login: ['thedaviddias'],
-  },
-  pkgRoot: './dist',
+  branches
 }
 
 module.exports.config = config
+module.exports.getConfig = getConfig

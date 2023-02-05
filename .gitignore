@@ -11,6 +11,7 @@ coverage
 # next.js
 .next/
 out/
+.vercel
 
 # misc
 .DS_Store
@@ -30,3 +31,6 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+.cache
+dist/

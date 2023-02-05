@@ -8,13 +8,16 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build --filter=[HEAD^1]",
+    "build:all": "turbo run build",
+    "clean": "turbo run clean --filter=[HEAD^1]",
+    "clean:all": "turbo run clean",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "semantic-release": "pnpm semantic-release:mono",
-    "semantic-release:dry": "NPM_TOKEN=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 pnpm --filter @thedaviddias/* -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo --dry-run",
-    "semantic-release:mono": "pnpm --filter @thedaviddias/* -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo"
+    "semantic-release:dry": "pnpm --filter=\"@thedaviddias/*\" -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo --dry-run",
+    "semantic-release:mono": "pnpm --filter=\"@thedaviddias/*\" -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo"
   },
   "devDependencies": {
     "@types/is-ci": "^3.0.0",
@@ -27,11 +30,15 @@
     "tsup": "^6.5.0",
     "turbo": "^1.7.0"
   },
+  "publishConfig": {
+    "access": "restricted"
+  },
   "engines": {
     "node": ">=16.0.0"
   },
   "packageManager": "pnpm@7.5.2",
   "dependencies": {
-    "@thedaviddias/tsconfig": "workspace:^0.0.0"
+    "@thedaviddias/semantic": "workspace:*",
+    "@thedaviddias/tsconfig": "workspace:*"
   }
 }

@@ -3,10 +3,14 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
+      "inputs": ["scripts/copy.sh", "src/**", "*.cjs", "package.json"],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {
       "outputs": []
+    },
+    "@thedaviddias/semantic#build": {
+      "inputs": ["src/**", "*.cjs", "package.json"]
     },
     "dev": {
       "cache": false
