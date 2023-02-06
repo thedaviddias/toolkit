@@ -1,5 +1,11 @@
 # @thedaviddias/eslint-config
 
+## 1.1.1
+
+### Patch Changes
+
+- 81d21be: remove turbo from config
+
 ## 1.1.0
 
 ### Minor Changes
