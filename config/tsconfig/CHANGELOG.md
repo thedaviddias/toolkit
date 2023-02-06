@@ -1,5 +1,11 @@
 # @thedaviddias/tsconfig
 
+## 1.1.0
+
+### Minor Changes
+
+- 4da066a: update configurations
+
 ## 1.0.5
 
 ### Patch Changes
