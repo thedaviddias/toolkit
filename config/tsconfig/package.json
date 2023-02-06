@@ -1,0 +1,30 @@
+{
+  "name": "@thedaviddias/tsconfig",
+  "version": "1.1.0",
+  "type": "module",
+  "description": "TypeScript configuration for David Dias projects",
+  "repository": "https://github.com/thedaviddias/toolkit/tree/main/config/tsconfig",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=16"
+  },
+  "keywords": [
+    "thedaviddias",
+    "tsconfig",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "pnpm run clean",
+    "clean": "rm -rf .turbo",
+    "clean:install": "pnpm run clean && rm -rf node_modules",
+    "dev": "echo '#tsup-node  --watch'",
+    "format:lint": "pnpm run format:prettier --write",
+    "format:prettier": "prettier \"./**/*.{cjs,js,jsx,mjs,ts,tsx,json,md,mdx,css,html,yml,yaml,scss}\" --ignore-unknown --loglevel warn",
+    "lint": "pnpm run format:prettier --check"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

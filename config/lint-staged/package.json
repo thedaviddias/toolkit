@@ -1,0 +1,38 @@
+{
+  "name": "@thedaviddias/lint-staged",
+  "version": "1.0.1",
+  "private": false,
+  "description": "Lint staged Configuration",
+  "keywords": [
+    "thedaviddias",
+    "lint-staged"
+  ],
+  "repository": "https://github.com/thedaviddias/toolkit/tree/main/config/lint-staged",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/lint-staged.config.js",
+  "module": "./dist/lint-staged.config.js",
+  "scripts": {
+    "build": "tsup-node",
+    "clean": "rm -rf .turbo && rm -rf dist",
+    "clean:install": "pnpm run clean && rm -rf node_modules",
+    "dev": "tsup-node  --watch",
+    "format:lint": "pnpm run lint:eslint --fix && pnpm run format:prettier --write",
+    "format:prettier": "prettier \"./src/**/*.{cjs,js,jsx,mjs,ts,tsx,json,md,mdx,css,html,yml,yaml,scss}\" --ignore-unknown --loglevel warn",
+    "lint": "pnpm run format:prettier --check && pnpm run lint:eslint",
+    "lint:eslint": "eslint ./src --ext cjs,js,jsx,mjs,ts,tsx --max-warnings=0"
+  },
+  "dependencies": {
+    "lint-staged": "13.1.0"
+  },
+  "peerDependencies": {
+    "is-ci": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

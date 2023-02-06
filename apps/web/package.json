@@ -1,0 +1,28 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "format:lint": "pnpm run lint:eslint --fix && pnpm run format:prettier --write",
+    "format:prettier": "prettier \"./src/**/*.{cjs,js,jsx,mjs,ts,tsx,json,md,mdx,css,html,yml,yaml,scss}\" --ignore-unknown --loglevel warn",
+    "lint": "pnpm run format:prettier --check && pnpm run lint:eslint",
+    "lint:eslint": "eslint ./src --ext cjs,js,jsx,mjs,ts,tsx --max-warnings=0"
+  },
+  "dependencies": {
+    "next": "^13.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@thedaviddias/tsconfig": "workspace:*",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.22",
+    "@types/react-dom": "^18.0.7",
+    "eslint": "8.33.0",
+    "typescript": "^4.5.3"
+  }
+}

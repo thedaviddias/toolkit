@@ -1,0 +1,52 @@
+name: 'Production'
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: push-${{ github.ref }}-1
+  cancel-in-progress: true
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  pull:
+    name: 'Production'
+    if: (github.ref == 'refs/heads/main') && !contains(github.event.head_commit.message, '[skip ci]')
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - name: 'Checkout'
+        id: pull-checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 10
+          persist-credentials: false
+
+      - name: 'Init'
+        id: push-init
+        uses: TheDavidDias/toolkit/.github/actions/init@main
+
+      - name: 'Install'
+        id: push-install
+        uses: TheDavidDias/toolkit/.github/actions/install@main
+
+      - name: 'Build'
+        id: push-build
+        uses: TheDavidDias/toolkit/.github/actions/build@main
+        with:
+          BUILD_COMMAND: 'build'
+
+      - name: 'Release'
+        id: push-release
+        uses: TheDavidDias/toolkit/.github/actions/release@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+          NPM_TOKEN: ${{ env.NPM_TOKEN }}

@@ -1,0 +1,47 @@
+{
+  "name": "toolkit",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "config/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build --filter=[HEAD^1]",
+    "build:all": "turbo run build",
+    "changeset": "changeset",
+    "ci:prerelease": "pnpm install && pnpm build",
+    "ci:release": "pnpm run ci:prerelease && changeset publish -r",
+    "ci:version": "changeset version && pnpm install --frozen-lockfile false",
+    "clean": "turbo run clean --filter=[HEAD^1]",
+    "clean:all": "turbo run clean",
+    "dev": "turbo run dev --no-cache --parallel --continue",
+    "format": "pnpm run format:prettier",
+    "format:lint": "turbo run format:lint",
+    "format:prettier": "pretty-quick",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "is-ci || husky install",
+    "lint": "turbo run lint"
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@changesets/cli": "^2.26.0",
+    "@thedaviddias/eslint-config": "workspace:*",
+    "@thedaviddias/lint-staged": "workspace:*",
+    "@thedaviddias/prettier-config": "workspace:*",
+    "@thedaviddias/tsconfig": "workspace:*",
+    "@types/is-ci": "^3.0.0",
+    "@types/node": "^18.11.18",
+    "dotenv": "^16.0.3",
+    "husky": "^8.0.3",
+    "is-ci": "^3.0.1",
+    "prettier": "^2.8.3",
+    "tsup": "^6.5.0",
+    "turbo": "^1.7.0"
+  },
+  "packageManager": "pnpm@7.5.2",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
