@@ -1,4 +1,4 @@
-name: '🚀️  Production'
+name: 'Production'
 
 on:
   push:
@@ -15,38 +15,36 @@ env:
 
 jobs:
   pull:
-    name: '👷️  CI'
-    if: (contains(github.event.head_commit.message, '[b]') || github.ref == 'refs/heads/main') && !contains(github.event.head_commit.message, '[skip ci]')
-    timeout-minutes: 20
+    name: 'Production'
+    if: (github.ref == 'refs/heads/main') && !contains(github.event.head_commit.message, '[skip ci]')
+    timeout-minutes: 10
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     env:
       GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
-      - name: '🐙️  Checkout'
+      - name: 'Checkout'
         id: pull-checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 10
           persist-credentials: false
 
-      - name: '💽️  Init'
+      - name: 'Init'
         id: push-init
         uses: TheDavidDias/toolkit/.github/actions/init@main
 
-      - name: '📦  Install'
+      - name: 'Install'
         id: push-install
         uses: TheDavidDias/toolkit/.github/actions/install@main
 
-      - name: '🏗️  Build'
+      - name: 'Build'
         id: push-build
         uses: TheDavidDias/toolkit/.github/actions/build@main
         with:
           BUILD_COMMAND: 'build'
 
-      - name: '🏷️  Release'
+      - name: 'Release'
         id: push-release
         uses: TheDavidDias/toolkit/.github/actions/release@main
         with:
