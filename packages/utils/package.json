@@ -1,0 +1,34 @@
+{
+  "private": false,
+  "license": "MIT",
+  "version": "1.0.0",
+  "name": "@thedaviddias/utils",
+  "description": "Library of utils used in David Dias projects",
+  "repository": "https://github.com/thedaviddias/toolkit/tree/main/packages/utils",
+  "engines": {
+    "node": ">=16"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup-node",
+    "clean": "rm -rf .turbo && rm -rf dist",
+    "clean:install": "pnpm run clean && rm -rf node_modules",
+    "dev": "tsup-node --watch",
+    "format:lint": "pnpm run lint:eslint --fix && pnpm run format:prettier --write",
+    "format:prettier": "prettier \"./src/**/*.{cjs,js,jsx,mjs,ts,tsx,json,md,mdx,css,html,yml,yaml,scss}\" --ignore-unknown --loglevel warn",
+    "lint": "pnpm run format:prettier --check && pnpm run lint:eslint",
+    "lint:eslint": "eslint ./src --ext cjs,js,jsx,mjs,ts,tsx --max-warnings=0"
+  },
+  "dependencies": {
+    "@octokit/rest": "19.0.7",
+    "colorize-template": "1.0.0",
+    "picocolors": "1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
