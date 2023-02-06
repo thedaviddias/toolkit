@@ -1,4 +1,4 @@
-name: '🚀️  Development'
+name: 'Development'
 
 on:
   pull_request:
@@ -20,12 +20,10 @@ env:
 
 jobs:
   pull:
-    name: '👷️  CI'
+    name: 'Development'
     if: github.event.pull_request.draft == false && !contains(github.event.head_commit.message, '[skip ci]')
-    timeout-minutes: 20
+    timeout-minutes: 10
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     env:
       GH_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -45,11 +43,12 @@ jobs:
         id: pull-install
         uses: TheDavidDias/toolkit/.github/actions/install@main
 
-      - name: '📛  Commit Message'
+      - name: 'Commit Message'
         id: pull-commit-message
         run: |
           echo "message=$(git log --no-merges -1 --oneline)" >> $GITHUB_OUTPUT
-      - name: '🏗️  Build'
+
+      - name: 'Build'
         id: pull-build
         uses: TheDavidDias/toolkit/.github/actions/build@main
         with:
