@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+[ -n "$CI" ] && exit 0
 . "$(dirname -- "$0")/_/husky.sh"
 
 FILE_ENV=.env
@@ -14,6 +15,10 @@ elif [ "$HUSKY" = "0" ]; then
 elif [[ "$HUSKY__PRE_COMMIT__FORMAT" = "0" && "$HUSKY__PRE_COMMIT__LINT" = "0" ]]; then
     exit 0
 fi
+
+# if [ ! "$HUSKY__PRE_COMMIT__FORMAT" = "0" ]; then
+#     pnpm pretty-quick --staged
+# fi
 
 if [ ! "$HUSKY__PRE_COMMIT__LINT" = "0" ]; then
     pnpm lint-staged

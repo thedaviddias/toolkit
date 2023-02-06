@@ -14,11 +14,11 @@ Then add the extends to your `.eslintrc.js`:
 
 ```js
 module.exports = {
-  extends: "@thedaviddias/eslint-config",
+  extends: '@thedaviddias/eslint-config',
   rules: {
     // your overrides
   },
-};
+}
 ```
 
 ### Base

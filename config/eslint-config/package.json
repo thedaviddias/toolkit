@@ -1,18 +1,20 @@
 {
   "name": "@thedaviddias/eslint-config",
   "version": "1.0.1",
-  "private": false,
+  "type": "module",
   "description": "Custom ESLint configuration for David Dias projects",
+  "repository": "https://github.com/thedaviddias/toolkit/tree/main/config/eslint-config",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=16"
+  },
   "keywords": [
     "thedaviddias",
     "eslint",
     "eslint-config",
     "eslint-config-turbo"
   ],
-  "repository": "https://github.com/thedaviddias/toolkit/tree/main/config/eslint-config",
-  "license": "MIT",
-  "sideEffects": false,
-  "type": "module",
   "scripts": {
     "build": "pnpm run clean",
     "clean": "rm -rf .turbo",
@@ -41,10 +43,8 @@
   "devDependencies": {
     "typescript": "^4.7.4"
   },
-  "engines": {
-    "node": ">=16"
-  },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "sideEffects": false
 }
