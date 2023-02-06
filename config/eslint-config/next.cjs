@@ -7,15 +7,9 @@ module.exports = {
     'plugin:@next/next/core-web-vitals',
     'plugin:@next/next/recommended',
   ],
-  plugins: [...config.plugins, 'turbo'],
+  plugins: [...config.plugins],
   rules: {
     ...config.rules,
     '@next/next/no-html-link-for-pages': 0,
-    'turbo/no-undeclared-env-vars': [
-      'error',
-      {
-        allowList: ['^ENV_[A-Z]+$'],
-      },
-    ],
   },
 }
