@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noImplicitAny": false,
+    "noEmit": true
+  },
+  "extends": "@thedaviddias/tsconfig/node16.json",
+  "exclude": []
+}

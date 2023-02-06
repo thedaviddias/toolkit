@@ -1,25 +1,30 @@
 {
   "name": "@thedaviddias/tsconfig",
   "version": "1.0.5",
-  "type": "module",
-  "description": "TypeScript Configuration for David Dias projects",
-  "repository": "thedaviddias/toolkit.git",
-  "sideEffects": false,
   "private": false,
-  "engines": {
-    "node": ">=16"
-  },
+  "description": "TypeScript configuration for David Dias projects",
+  "keywords": [
+    "thedaviddias",
+    "tsconfig",
+    "typescript"
+  ],
+  "repository": "https://github.com/thedaviddias/toolkit/tree/main/config/tsconfig",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
   "scripts": {
     "build": "pnpm run clean",
     "clean": "rm -rf .turbo",
     "clean:install": "pnpm run clean && rm -rf node_modules",
     "dev": "echo '#tsup-node  --watch'",
     "format:lint": "pnpm run lint:eslint --fix && pnpm run format:prettier --write",
-    "format:prettier": "prettier \"./src/**/*.{cjs,js,jsx,mjs,ts,tsx,json,md,mdx,css,html,yml,yaml,scss}\" --ignore-unknown --loglevel warn",
+    "format:prettier": "prettier \"./**/*.{cjs,js,jsx,mjs,ts,tsx,json,md,mdx,css,html,yml,yaml,scss}\" --ignore-unknown --loglevel warn",
     "lint": "pnpm run format:prettier --check"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
     "access": "public"
   }
 }
