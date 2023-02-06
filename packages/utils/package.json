@@ -1,7 +1,7 @@
 {
   "private": false,
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "@thedaviddias/utils",
   "description": "Library of utils used in David Dias projects",
   "repository": "https://github.com/thedaviddias/toolkit/tree/main/packages/utils",
