@@ -6,8 +6,16 @@
       "inputs": ["scripts/copy.sh", "src/**", "*.cjs", "package.json"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "clean": {
+      "cache": false
+    },
     "lint": {
-      "outputs": []
+      "dependsOn": [],
+      "inputs": ["src/**", "*.cjs", "package.json"]
+    },
+    "format:lint": {
+      "cache": false,
+      "dependsOn": []
     },
     "dev": {
       "cache": false

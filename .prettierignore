@@ -1,0 +1,7 @@
+**/.cache/**
+**/.husky/**
+**/.next/**
+**/.turbo/**
+**/dist/**
+**/node_modules/**
+pnpm-lock.yaml
