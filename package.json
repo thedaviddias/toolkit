@@ -1,7 +1,7 @@
 {
   "name": "toolkit",
-  "version": "0.0.0-development",
   "private": true,
+  "license": "MIT",
   "workspaces": [
     "apps/*",
     "config/*",
@@ -16,18 +16,21 @@
     "ci:version": "changeset version && pnpm install --frozen-lockfile false",
     "clean": "turbo run clean --filter=[HEAD^1]",
     "clean:all": "turbo run clean",
-    "dev": "turbo run dev --parallel",
+    "dev": "turbo run dev --no-cache --parallel --continue",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "is-ci || husky install",
     "lint": "turbo run lint"
   },
   "dependencies": {
-    "@thedaviddias/tsconfig": "workspace:*"
-  },
-  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
     "@changesets/cli": "^2.26.0",
     "@thedaviddias/eslint-config": "workspace:*",
+    "@thedaviddias/lint-staged": "workspace:*",
+    "@thedaviddias/tsconfig": "workspace:*",
     "@types/is-ci": "^3.0.0",
     "dotenv": "^16.0.3",
+    "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "prettier": "^2.8.3",
     "tsup": "^6.5.0",
